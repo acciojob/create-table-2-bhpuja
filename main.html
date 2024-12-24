@@ -1,70 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Table</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    #myTable {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 20px;
-    }
-    #myTable th, #myTable td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <button onclick="createTable()">Create the table</button>
-  <table id="myTable"></table>
+    <button onclick="createTable()">Create the table</button>
+    <table id="myTable"></table>
 
-  <script>
-    function createTable() {
-      // Get the number of rows
-      let rows = prompt("Input number of rows:");
-      rows = parseInt(rows);
-      if (isNaN(rows) || rows <= 0) {
-        alert("Please enter a valid positive number for rows.");
-        return;
-      }
+    <script>
+        function createTable() {
+            // Prompt the user for the number of rows
+            let rows = parseInt(prompt("Input number of rows"));
+            if (isNaN(rows) || rows <= 0) {
+                alert("Please enter a valid positive number for rows.");
+                return;
+            }
 
-      // Get the number of columns
-      let cols = prompt("Input number of columns:");
-      cols = parseInt(cols);
-      if (isNaN(cols) || cols <= 0) {
-        alert("Please enter a valid positive number for columns.");
-        return;
-      }
+            // Prompt the user for the number of columns
+            let columns = parseInt(prompt("Input number of columns"));
+            if (isNaN(columns) || columns <= 0) {
+                alert("Please enter a valid positive number for columns.");
+                return;
+            }
 
-      // Get the table element
-      const table = document.getElementById("myTable");
+            // Get the table element
+            const table = document.getElementById("myTable");
+            table.innerHTML = ""; // Clear existing table
 
-      // Clear any existing table content
-      table.innerHTML = "";
-
-      // Create rows and columns
-      for (let i = 0; i < rows; i++) {
-        const row = document.createElement("tr");
-        for (let j = 0; j < cols; j++) {
-          const cell = document.createElement("td");
-          cell.textContent = `Row-${i} Column-${j}`;
-          row.appendChild(cell);
+            // Create rows and columns dynamically
+            for (let i = 0; i < rows; i++) {
+                const row = table.insertRow();
+                for (let j = 0; j < columns; j++) {
+                    const cell = row.insertCell();
+                    cell.textContent = `Row-${i} Column-${j}`;
+                }
+            }
         }
-        table.appendChild(row);
-      }
-    }
-  </script>
+    </script>
 </body>
 </html>
+
