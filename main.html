@@ -1,55 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Table</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <button onclick="createTable()">Create the table</button>
-    <table id="myTable"></table>
 
-    <script>
-        function createTable() {
-            // Prompt the user for the number of rows
-            let rows = parseInt(prompt("Input number of rows"));
-            if (isNaN(rows) || rows <= 0) {
-                alert("Please enter a valid positive number for rows.");
-                return;
-            }
+<html>
 
-            // Prompt the user for the number of columns
-            let columns = parseInt(prompt("Input number of columns"));
-            if (isNaN(columns) || columns <= 0) {
-                alert("Please enter a valid positive number for columns.");
-                return;
-            }
+	<head>
+		<meta charset=utf-8 /> 
+		<title>Create a table</title> 
+		<style type="text/css"> 
+			body {margin: 30px;} 	
+		</style>
+		<link rel="stylesheet" href="styles.css">
+	</head>
 
-            // Get the table element
-            const table = document.getElementById("myTable");
-            table.innerHTML = ""; // Clear existing table
+	<body>
+		<table id="myTable" border="1"> 
+		</table>
+		<form> 
+			<input type="button" onclick="createTable()" value="Create the table"> 
+		</form>
+		<script type="text/javascript" src="./script.js"></script>
 
-            // Create rows and columns dynamically
-            for (let i = 0; i < rows; i++) {
-                const row = table.insertRow();
-                for (let j = 0; j < columns; j++) {
-                    const cell = row.insertCell();
-                    cell.textContent = `Row-${i} Column-${j}`;
-                }
-            }
-        }
-    </script>
-</body>
+	</body>
+
 </html>
-
