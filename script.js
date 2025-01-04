@@ -1,4 +1,4 @@
-function createTable() {
+  function createTable() {
     // Get the number of rows and columns from the user
     let rn = prompt("Input number of rows");
     let cn = prompt("Input number of columns");
@@ -22,3 +22,4 @@ function createTable() {
         table.appendChild(row);
     }
 }
+
