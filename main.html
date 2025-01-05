@@ -6,9 +6,13 @@
   <title>Create Table</title>
 </head>
 <body>
+  <!-- Button to create the table -->
   <button onclick="createTable()">Create the table</button>
+
+  <!-- Empty table to be filled dynamically -->
   <table id="myTable" border="1"></table>
 
+  <!-- JavaScript code -->
   <script>
     function createTable() {
       // Prompt the user to input the number of rows
@@ -25,21 +29,21 @@
         return;
       }
 
-      // Get the table element
+      // Get the table element by ID
       const table = document.getElementById("myTable");
 
-      // Clear any existing rows in the table
+      // Clear any existing table content
       table.innerHTML = "";
 
-      // Create the table rows and columns
+      // Create rows and columns dynamically
       for (let i = 0; i < rows; i++) {
-        const row = document.createElement("tr");
+        const row = document.createElement("tr"); // Create a table row
         for (let j = 0; j < columns; j++) {
-          const cell = document.createElement("td");
-          cell.textContent = `Row-${i} Column-${j}`;
-          row.appendChild(cell);
+          const cell = document.createElement("td"); // Create a table cell
+          cell.textContent = `Row-${i} Column-${j}`; // Set cell content
+          row.appendChild(cell); // Append cell to row
         }
-        table.appendChild(row);
+        table.appendChild(row); // Append row to table
       }
     }
   </script>
